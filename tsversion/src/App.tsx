@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
 import styled, { createGlobalStyle } from "styled-components";
 import Router from "./Router";
-
-
+import { useQuery } from 'react-query'
+import { ReactQueryDevtools } from 'react-query/devtools'
 const GlobalComponents = createGlobalStyle`
 
 @import url('https://fonts.googleapis.com/css2?family=Edu+SA+Beginner&family=Edu+VIC+WA+NT+Beginner&family=Jua&display=swap');
@@ -74,6 +74,7 @@ function App() {
     <>
     <GlobalComponents></GlobalComponents>
     <Router></Router>
+    <ReactQueryDevtools initialIsOpen={true}/>
     </>
   )
   

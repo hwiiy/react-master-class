@@ -3,7 +3,7 @@ import { Switch,Route, useLocation, useParams, Link,useRouteMatch } from "react-
 import styled from "styled-components";
 import Chart from "./Chart";
 import Price from "./Prices";
-import { Theme } from "../theme";
+import { lightTheme } from "../theme";
 import { useQuery } from "react-query";
 import { InfoFetcher,TickerFetcher } from "../Api";
 
@@ -201,7 +201,7 @@ function Coin(){
             <Price />
           </Route>
           <Route path={`/${coinId}/chart`}>
-            <Chart />
+            <Chart coinId={coinId}/>
           </Route>
         </Switch>
 

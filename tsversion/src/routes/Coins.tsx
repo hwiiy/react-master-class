@@ -1,9 +1,11 @@
 import styled from "styled-components";
-import { Theme } from "../theme";
+import { lightTheme } from "../theme";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import { fetchCoins } from "../Api";
+import { useSetRecoilState } from "recoil";
+import { isdarkItom } from "./atoms";
 
 const Title = styled.h1`
     color : ${props =>props.theme.accentColor};
@@ -55,11 +57,13 @@ interface CoinInterface{
 }
 
 function Coins(){
+    const setterFn = useSetRecoilState(isdarkItom)
     const {isLoading,data} =useQuery<CoinInterface[]>(["allCoins"],fetchCoins)
 
     return <Container>
         <Header>
             <Title>Coins!!</Title>
+            <button onClick={()=>setterFn((prev)=>!prev)}>Toggle Mode</button>
         </Header>
 
         {isLoading ? (<Loader>"Loading..."</Loader>):(

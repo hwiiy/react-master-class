@@ -15,3 +15,8 @@ export function TickerFetcher(coinId:string){
     return fetch(`${BASE_URL}/tickers/${coinId}`)
     .then(response => response.json());
 }
+
+export function ChartFetcher(coinId:string){
+    return fetch(`https://ohlcv-api.nomadcoders.workers.dev?${coinId}`)
+    .then(response=> response.json());
+}

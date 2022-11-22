@@ -1,6 +1,6 @@
 import React from 'react';
 import { createGlobalStyle } from 'styled-components';
-import Todolist from './Todolist';
+import ToDoList from "./Components/Todolist"
 
 
 const GlobalComponents = createGlobalStyle`
@@ -59,7 +59,7 @@ function App() {
   return (
   <>
   <GlobalComponents></GlobalComponents>
-  <Todolist></Todolist>
+  <ToDoList></ToDoList>
   </>
   );
 }
